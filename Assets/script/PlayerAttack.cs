@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// プレイヤーの攻撃処理。
@@ -19,7 +20,13 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time >= lastAttackTime + attackCooldown)
+        var keyboard = Keyboard.current;
+        var mouse = Mouse.current;
+
+        bool attackPressed = (keyboard != null && keyboard.jKey.wasPressedThisFrame)
+            || (mouse != null && mouse.leftButton.wasPressedThisFrame);
+
+        if (attackPressed && Time.time >= lastAttackTime + attackCooldown)
         {
             Attack();
             lastAttackTime = Time.time;
