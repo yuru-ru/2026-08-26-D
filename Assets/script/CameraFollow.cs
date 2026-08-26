@@ -16,10 +16,13 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            return;
+        }
 
         Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, 1f - Mathf.Exp(-smoothSpeed * Time.deltaTime));
 
         if (useClamp)
         {

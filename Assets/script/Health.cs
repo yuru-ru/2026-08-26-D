@@ -29,14 +29,24 @@ public class Health : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        currentHealth = maxHealth;
+        currentHealth = Mathf.Max(1, maxHealth);
+    }
+
+    private void OnValidate()
+    {
+        maxHealth = Mathf.Max(1, maxHealth);
+        invincibleDuration = Mathf.Max(0f, invincibleDuration);
     }
 
     public void TakeDamage(int amount)
     {
-        if (isInvincible || currentHealth <= 0) return;
+        if (isInvincible || currentHealth <= 0 || amount <= 0)
+        {
+            return;
+        }
 
         currentHealth -= amount;
+        currentHealth = Mathf.Max(0, currentHealth);
         onDamaged?.Invoke();
 
         if (currentHealth <= 0)
@@ -58,9 +68,12 @@ public class Health : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        if (currentHealth > 0)
+        {
+            return;
+        }
+
         onDeath?.Invoke();
-        // 演出を挟みたい場合はここでDestroy(gameObject)ではなく
-        // アニメーション/効果音再生後にDestroyするコルーチンに差し替える
         gameObject.SetActive(false);
     }
 }

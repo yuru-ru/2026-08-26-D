@@ -23,13 +23,14 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
+        float step = direction * moveSpeed * Time.deltaTime;
+        transform.position += Vector3.right * step;
 
         if (Mathf.Abs(transform.position.x - startPos.x) >= patrolDistance)
         {
             direction *= -1;
             Vector3 scale = transform.localScale;
-            scale.x *= -1;
+            scale.x *= -1f;
             transform.localScale = scale;
         }
     }
