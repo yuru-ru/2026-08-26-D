@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
+/// 〇処理内容
 /// ゲーム全体を管理するスクリプト。
 ///
 /// ・スコア
@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 /// ・ステージクリア
 /// ・リトライ
 /// ・タイトルへ戻る
-/// </summary>
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }

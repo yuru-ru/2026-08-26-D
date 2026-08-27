@@ -1,8 +1,7 @@
 using UnityEngine;
 
-/// <summary>
+/// 〇処理内容
 /// PlayerのHealth死亡イベントをGameManagerへ接続する。
-/// </summary>
 [RequireComponent(typeof(Health))]
 public class PlayerDeath : MonoBehaviour
 {

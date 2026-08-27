@@ -2,10 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
+/// 〇処理内容
 /// ダメージを受けられるオブジェクトが実装するインターフェース。
 /// プレイヤー・敵の両方に同じHealthコンポーネントを付けて使い回せる。
-/// </summary>
 public interface IDamageable
 {
     void TakeDamage(int amount);
