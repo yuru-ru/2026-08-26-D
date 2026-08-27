@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
+/// 〇処理内容
 /// プレイヤーの攻撃処理。
 /// プレイヤーには攻撃アニメーションを用意しない前提のため、
 /// 見た目の演出は行わず「攻撃判定の発生」のみを担当するシンプルな実装。
 /// エフェクトを足したい場合はAttack()内でParticleやSE再生を追加してください。
-/// </summary>
+
 public class PlayerAttack : MonoBehaviour
 {
     [Header("攻撃設定")]

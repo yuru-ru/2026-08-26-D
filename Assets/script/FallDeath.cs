@@ -1,9 +1,8 @@
 using UnityEngine;
 
-/// <summary>
+/// 〇処理内容
 /// プレイヤーが設定したY座標より下に落ちた場合、
 /// ゲームオーバーにする。
-/// </summary>
 public class FallDeath : MonoBehaviour
 {
     [Header("このY座標より下に行ったらゲームオーバー")]

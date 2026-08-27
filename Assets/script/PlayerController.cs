@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
+///〇処理内容
 /// プレイヤーの移動・ジャンプ・向き反転・Animator制御
 ///
 /// Animator Parameters:
@@ -14,7 +14,6 @@ using UnityEngine.InputSystem;
 ///     Ground : Collider2D
 ///
 /// GroundのLayerを「Ground」に設定してください。
-/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Animator))]
@@ -82,9 +81,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容 
     /// 左右入力
-    /// </summary>
     private void GetMoveInput()
     {
         Keyboard keyboard = Keyboard.current;
@@ -110,9 +108,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// ジャンプ入力
-    /// </summary>
     private void CheckJumpInput()
     {
         Keyboard keyboard = Keyboard.current;
@@ -133,9 +130,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// ジャンプ
-    /// </summary>
     private void Jump()
     {
         rb.linearVelocity = new Vector2(
@@ -151,9 +147,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// 移動
-    /// </summary>
+  
     private void Move()
     {
         rb.linearVelocity = new Vector2(
@@ -163,9 +159,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// BoxCollider2Dを使った接地判定
-    /// </summary>
     private void CheckGrounded()
     {
         Bounds bounds = boxCollider.bounds;
@@ -192,9 +187,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// Animatorの値を更新
-    /// </summary>
     private void UpdateAnimatorParameters()
     {
         animator.SetFloat(
@@ -225,9 +219,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 〇処理内容
     /// キャラクター反転
-    /// </summary>
     private void Flip()
     {
         facingRight = !facingRight;
@@ -238,9 +231,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /// <summary>
+    ///〇処理内容
     /// 接地判定をSceneビューに表示
-    /// </summary>
     private void OnDrawGizmosSelected()
     {
         BoxCollider2D col = GetComponent<BoxCollider2D>();
